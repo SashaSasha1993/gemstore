@@ -1,0 +1,26 @@
+<ul class="nav nav-pills">
+    <li ng-class="{active:tab === 1}"><a ng-click="selectTab(1)" href>Description</a></li>
+    <li ng-class="{active:tab === 2}"><a ng-click="selectTab(2)" href>Specifications</a></li>
+    <li ng-class="{active:tab === 3}"><a ng-click="selectTab(3)" href>Reviews</a></li>
+</ul>
+
+<p></p>
+
+<div class="panel" ng-show="tab === 1">
+    <h4>Description</h4>
+    <p>{{products.description}}</p>
+</div>
+<div class="panel" ng-show="tab === 2">
+    <h4>Specifications</h4>
+    <blockquote>In Development</blockquote>
+</div>
+<div class="panel" ng-show="tab === 3">
+    <h4>Reviews</h4>
+    <blockquote ng-repeat="review in products.reviews">
+        <b>Stars: {{review.stars}}</b> {{review.body}}
+        <cite>by: {{review.author}}</cite>
+    </blockquote>
+    
+    <div store-reviews></div>
+
+</div>
